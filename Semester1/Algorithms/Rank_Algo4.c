@@ -14,16 +14,23 @@ int partition(int arr[] , int low , int high , int num);
 void swap(int *num1 ,int *num2);
 int findmedian(int arr[] , int n);
 
+void print(int arr[], int size)
+{
+    for (int i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
 int main()
 {
-    int arr[] = {4, 3, 26, 122, 56, 202, 900};
+    int arr[] = {4, 3, 26, 122, 56};
     int n = sizeof(arr)/sizeof(arr[0]);
     mergeSort(arr , 0 , n-1);
     //printf("%d  llool",arr[2]);
     //getchar();
     int input;
     //printf("Sorted array: \n");
-    //print(arr, n);
+    print(arr, n);
     scanf("%d" , &input);
     printf("%d", rank(arr , 0 , n-1, input));
     return 0;
@@ -33,7 +40,8 @@ int main()
 int rank(int arr[] , int left , int right , int r){
 	if(r > 0 && r <= right - left + 1){
 		int n = right - left + 1 ;  //number of elements
-		int i , median[(n+4)/5] ; //divide in group of 5 
+		int i , median[10000] ; //divide in group of 5 
+		
 		for(int i = 0 ; i < n/5 ; i++)
 			median[i] = findmedian(arr+left+i*5 , 5);
 		
@@ -41,18 +49,20 @@ int rank(int arr[] , int left , int right , int r){
 			median[i] = findmedian(arr+left+i*5 , n%5);
 		i++;
 		}  // for group not containing 5 members
-
+		
 		//recursive calls for median
+		
+		
 
 		int medOfMed;
 		if(i == 1)
-			median[i-1];
+			medOfMed = median[i-1];
 		else
-			rank(median , 0 , i-1 ,i/2);	
+			medOfMed = rank(median , 0 , i-1 ,i/2);	
 	
-
+		
 		int index = partition(arr , left , right , medOfMed);
-		//printf("%d",index);
+		
 		if(index - left == r - 1)
 			return arr[index];
 		if(index - left > r - 1)
@@ -94,7 +104,7 @@ void merge(int arr[] , int left , int mid , int right){
 
 	int leftSize = mid - left + 1;
 	int rightSize = right - mid ;
-
+	
 	int leftArr[leftSize] , rightArr[rightSize] ;
 
 	for(int i = 0 ; i < leftSize ; i++)
@@ -127,13 +137,15 @@ void merge(int arr[] , int left , int mid , int right){
 		q++;
 		r++;
 	}
+	
 }
 void mergeSort ( int arr[] , int left , int right ){
 
 	if(left < right){
 		
 		int mid = (left + right) / 2 ;
-		
+		//printf("%d" , mid);
+		//getchar();
 		mergeSort(arr , left , mid);
 		mergeSort(arr , mid+1 , right);
 		merge(arr , left , mid , right);

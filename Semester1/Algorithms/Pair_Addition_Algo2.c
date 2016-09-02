@@ -10,7 +10,7 @@ int main(){
 	int size = sizeof(arr) / sizeof(arr[0]);
 	for(int i = 0 ; i < size ; i++)
 	{
-		hash[arr[i]] = i ;	//marking seen members
+		hash[arr[i]] = i ;	//marking seen members and can be done after if loop of below for loop
 	}
 	for(int i = 0 ; i < size ; i++){
 					

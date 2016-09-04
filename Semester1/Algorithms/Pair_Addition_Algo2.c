@@ -7,7 +7,7 @@ int main(){
 	int arr[] = { 10 , 43 , 22 , 45 , 55 , -4 } ; //works for -ve number
 	int hash[1000000] = {0} ;
 	int sum = 32;
-	int size = sizeof(arr) / sizeof(arr[0]);
+	int size = sizeof(arr) / sizeof(arr[0]) ;
 	for(int i = 0 ; i < size ; i++)
 	{
 		hash[arr[i]] = i ;	//marking seen members and can be done after if loop of below for loop

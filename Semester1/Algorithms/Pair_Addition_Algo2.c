@@ -1,4 +1,4 @@
-/* O(n) Method by using Hash Concept */
+/* Finding ABS max difference O(n) Method by using Hash Concept */
 
 #include <stdio.h>
 

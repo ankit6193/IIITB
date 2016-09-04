@@ -26,7 +26,7 @@ int maxDifference(int arr[] , int size , int l){
 		}
 		
 	}
-	return max ;
+	return max;
 }
 
 int main(){

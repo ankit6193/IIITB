@@ -61,7 +61,7 @@ void pushAtMid(Node *node , void *new_data , size_t data_size , char d){
 	node -> next = new_node;
 
 	new_node -> data = new_data;
-	printf("Bye!!\n");
+	//printf("Bye!!\n");
 }
 
 void delete(Node** head , char d){
@@ -87,7 +87,7 @@ void delete(Node** head , char d){
 	prev -> next = cur -> next; 
 }
 
-void printList(Node** node , void (*fptr)(void *)){
+void printList(Node* node , void (*fptr)(void *)){
 	while(node != NULL){
 		(*fptr)(node -> data) ;//xalling print function
 		node = node -> next;

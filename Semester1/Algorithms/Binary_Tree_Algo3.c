@@ -93,7 +93,7 @@ void insert(Node** root , Queue* queue , int data){
     enqueue(temp , queue);
 }
 
-void inOrder(Node* root){
+void preOrder(Node* root){
    if(root == NULL){
         return;
    }  
@@ -115,6 +115,6 @@ int main(int argc, char const *argv[])
         insert(&root,queue,i);
     }
 
-    inOrder(root);
+    preOrder(root);
     return 0;
 }
